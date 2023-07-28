@@ -4,13 +4,14 @@
   user: centos  # Use the default login for the AWS image. Here we are using a Centos image.
   roles:
     - { role: Datadog.datadog, become: true }
+  vars_files:
+    - /datadog-config-vars/infrastructure_vars.yaml
 
-  vars:
-    datadog_api_key: {datadog_api_key}
-    datadog_config:
-      tags:
-        - env:ansible-infra-test
-      logs_enabled: true
-      process_config:
-        enabled: "true"
-      inventories_configuration_enabled: true
+- name: Install Datadog agent on APM Hosts
+  hosts: apm_hosts
+  become: true
+  user: centos
+  roles:
+    - { role: Datadog.datadog, become: true }
+  vars_files:
+    - /datadog-config-vars/apm_vars.yaml

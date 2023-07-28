@@ -1,0 +1,15 @@
+datadog_config:
+  # Enable remote configuration
+  inventories_configuration_enabled: true
+  remote_configuration:
+    enabled: true
+  
+  logs_enabled: true 
+  process_config:
+    enabled: "true"
+
+  # Setup tagging strategy
+  tags:
+    - env: ansible-test
+    - ansible_config: apm_vars
+
