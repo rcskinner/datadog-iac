@@ -10,6 +10,6 @@ datadog_config:
 
   # Setup tagging strategy
   tags:
-    - env: ansible-test
-    - ansible_config: infrastructure_vars
+    - "env:ansible-test"
+    - "ansible_config:infra_vars"
 

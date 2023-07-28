@@ -1,11 +1,12 @@
-- name: Install Datadog Agent on servers in AWS
+- name: Starting Datadog agent install on infrastructure servers
   hosts: infra_hosts
+  vars_files:
+    - ~/repos/datadog-iac/ansible/vars/infrastructure_vars.yaml
   become: true
   user: centos  # Use the default login for the AWS image. Here we are using a Centos image.
   roles:
     - { role: Datadog.datadog, become: true }
-  vars_files:
-    - /datadog-config-vars/infrastructure_vars.yaml
+
 
 - name: Install Datadog agent on APM Hosts
   hosts: apm_hosts
@@ -14,4 +15,4 @@
   roles:
     - { role: Datadog.datadog, become: true }
   vars_files:
-    - /datadog-config-vars/apm_vars.yaml
+    - ./vars/apm_vars.yaml
