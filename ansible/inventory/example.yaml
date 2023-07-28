@@ -1,9 +1,20 @@
 # https://docs.ansible.com/ansible/latest/getting_started/get_started_inventory.html#get-started-inventory
-virtualmachines:
+infrastructure_hosts:
   hosts:
-    vm01:
-      ansible_host: 192.0.2.50
-    vm02:
-      ansible_host: 192.0.2.51
-    vm03:
-      ansible_host: 192.0.2.52
+    infra01:
+      ansible_host: <<host_ip>>
+    infra02:
+      ansible_host: <<host_ip>>
+    infra03:
+      ansible_host: <<host_ip>>
+    vars:
+      ansible_user: infra_user
+
+apm_hosts: 
+  hosts: 
+    apm01: 
+      ansible_host: <<host_ip>>
+    apm02: 
+      ansible_host: <<host_ip>>
+    vars:
+      ansible_user: apm_user
