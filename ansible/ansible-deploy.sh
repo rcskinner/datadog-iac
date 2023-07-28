@@ -1,1 +1,1 @@
-ansible-playbook -i inventory/inventory.yaml playbook.yaml
+ansible-playbook -i inventory/inventory.yaml datadog_playbook.yaml -e @secrets_file.enc 

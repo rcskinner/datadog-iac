@@ -1,1 +1,8 @@
+# Ansible Inventory Lists
 **/inventory
+
+# Ansible Vault encrypted files
+*.enc
+
+# VSCode Config
+.vscode
